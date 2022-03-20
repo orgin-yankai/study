@@ -40,7 +40,7 @@ git push -u origin master
 	
 	加了参数-u后，以后即可直接用git push -u  代替git push origin master
 	参数-f    git push -f表示将目前自己本机的代码库推送到远端，并覆盖
-	上述不行就用 git push remotename master 或 git push -u remotename master
+	上述不行就用 git push remotename master 或 git push -u remotename master 或 git push remotename  remotename代表的是远程仓库的名称
  		
 版本控制系统(管理的是修改)
 配置 用户和邮件
