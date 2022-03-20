@@ -1,0 +1,76 @@
+
+
+
+开发者密码(AppSecret)         0060672689dd9c0eeb738acd49c38110       
+开发者ID(AppID)                wxe6b173dfe6848600
+原始ID               gh_4105ade92622
+access_token:54_X9oW56qgOsBJOZxesYVG9D8Grp4Qr67wd9kuzwghjuZKLWSoB1DWyB_Sa6SW5nsEPKJwsZcxnLALWUMIlh39ZSQdI0cM4M6P2gEJmSfiN7PwN3YSaO1UF9Du4pC7gqj1j_ASUgaIafAgdh28XPIjAGAHZS
+
+
+测试号信息
+appID
+wx6576622d2c549df9
+appsecret
+2d4b8cb0544389f6e760c23accdca137
+
+
+
+
+微信云托管域名
+https://thinkphp-nginx-5p0k-1713082-1310198039.ap-shanghai.run.tcloudbase.com/
+
+小程序/公众号调用   
+wx.cloud.callContainer({
+  "config": {
+    "env": "prod-5g0swg9f42757c53"
+  },
+  "path": "/api/count",
+  "header": {
+    "X-WX-SERVICE": "thinkphp-nginx-5p0k"
+  },
+  "method": "POST",
+  "data": {
+    "action": "inc"
+  }
+})
+
+
+
+
+MYSQL_ADDRESS    10.0.224.10:3306
+
+MYSQL_PASSWORD   s^zTQ5yZ
+
+MYSQL_USERNAME    root
+
+
+
+用ThinkPHP6重构个人博客系统
+
+
+
+
+测试号信息
+appID:  wx6576622d2c549df9
+appsecret:  2d4b8cb0544389f6e760c23accdca137
+
+
+
+
+流程:
+
+手机->微信服务器->开发者服务器
+手机>-微信服务器<-开发者服务器
+
+首先 javaboy4096 这个字符从公众号上发送到了微信服务器
+接下来微信服务器会把 javaboy4096 转发到我自己的服务器上
+我收到 javaboy4096 这个字符之后，就去数据库中查询，将查询的结果，按照腾讯要求的 XML 格式进行返回
+微信服务器把从我的服务器收到的信息，再发回到微信上，于是小伙伴们就看到了返回结果了
+大致的流程就是这个样子。
+
+
+一、微信订阅号开发所出现的问题
+	1、公众号下的设置与开发的基础配置消息加解密方式(一定要是明文模式)，否则加密开发者获取不到对象的属性，要解密才能得到
+  	2、token的获取，公众号下的设置与开发的基础配置填写的token与服务器的token一至，timestamp、nonce 、token这三个数据进行字典然后在sha1加密在跟这个signature数据进行比较是true就输出echostr数据
+	3、xml中的数据不能有空格，还有区分大小写
+

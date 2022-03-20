@@ -1,0 +1,5 @@
+简而言之，post delete put get分别对应数据库中的增删改查,insert delete update select
+get=>select
+post=>insert
+put=>update
+delete=>delete

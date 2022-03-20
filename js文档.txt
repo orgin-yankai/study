@@ -1,0 +1,18 @@
+js   ajax：
+get和post方法最大的不同在于：
+
+1.get方法传值参数在url里面，而post参数放send里面
+
+2.post方法必须加上
+
+xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+JSON.parse       字符串转成 对象
+JSON.stringify   对象 转成字符串
+
+
+事件流：
+网景公司提出的事件流叫事件捕获流 事件捕获：从上到下执行
+IE提出的事件流叫做事件冒泡     事件冒泡：从下到上行
+
+DOM事件流：规定的事件流包含3个阶段，事件捕获阶段、处于目标阶段、事件冒泡阶段

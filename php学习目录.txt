@@ -1,0 +1,137 @@
+教学/学习目录
+
+第一篇：PHP基础知识
+1，PHP开发环境、基本语句、注释；
+2，PHP变量和数据类型
+3，PHP操作符
+4，PHP语法语句
+5，PHP函数
+6，PHP字符串常用操作
+7，PHP数组常用操作
+8，PHP文本处理
+9，正则表达式
+10，代码重用
+11，面向对象编程，PHP类
+12，异常错误处理
+第二篇：MySQL知识
+1，数据库基本概念
+2，创建实例库
+3，MySQL常用数据类型
+4，MySQL常用操作(CURD)
+5，连表操作
+6，PHP与MySQL协作研发
+第三篇：前端知识
+1，HTMl标签
+2，CSS使用
+3，JS的基本语法、语句
+4，JS的动态效果
+5，JS与PHP前后端交互
+6，初识Jquery
+第四篇：高级进阶
+1，PHP文件上载、图像处理
+2，PHP的设计模式
+3，PHP会话控制
+4，PHP的其他特性及配置
+5，MySQL的索引类型
+6，MySQL的索引使用
+7，MySQL的存储引擎
+第五篇：项目实践
+1，原生代码研发校园交易类系统
+2，初识ThinkPHP框架/YII框架
+3，框架研发宠物服务平台系统
+第六篇：数据结构和算法
+1，常用数据结构类型
+2，常用排序算法
+3，汉诺塔算法
+4，最短路径算法
+第七篇：面试技巧
+1，面试注意事项
+2，求职工作筛选
+3，职业规划
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+下面是PHP获取当前服务器信息的基本语句。
+ 
+PHP程式版本： <?PHP echo PHP_VERSION; ?>
+ZEND版本： <?PHP echo zend_version(); ?>
+MYSQL支持： <?php echo function_exists (mysql_close)?"是":"否"; ?>
+MySQL数据库持续连接 ： <?php echo @get_cfg_var("mysql.allow_persistent")?"是 ":"否"; ?>
+MySQL最大连接数： <?php echo @get_cfg_var("mysql.max_links")==-1 ? "不限" : @get_cfg_var("mysql.max_links");?>
+服务器操作系统： <?PHP echo PHP_OS; ?>
+服务器端信息： <?PHP echo $_SERVER ['SERVER_SOFTWARE']; ?>
+最大上传限制： <?PHP echo get_cfg_var ("upload_max_filesize")?get_cfg_var ("upload_max_filesize"):"不允许上传附件"; ?>
+最 大执行时间： <?PHP echo get_cfg_var("max_execution_time")."秒 "; ?>
+脚本运行占用最大内存： <?PHP echo get_cfg_var ("memory_limit")?get_cfg_var("memory_limit"):"无" ?>
+查询当前连接的MYSQL数据库的版本 php自带函数 mysql_get_server_info()
+获得服务器系统时间 date_default_timezone_set (PRC); echo date("Y-m-d G:i:s");
+ 
+查询当前连接的MYSQL数据库的版本 php自带函数 mysql_get_server_info()
+获得服务器系统时间 date_default_timezone_set (PRC); echo date("Y-m-d G:i:s");
+
+
+
+
+
+
+
+
+
+
+匿名函数：
+匿名函数(Anonymous functions)，也叫闭包函数(closures)，允许 临时创建一个没有指定名称的函数。最经常用作回调函数(callback)参数的值。
+
+
+PHP_EOL常量是处理写日志系统的换行功能好用处
+
+
+
+
+脚本之家下
+首页 → 网络编程 → PHP编程 → php技巧 → PHP自动加载
+https://www.jb51.net/article/166979.htm
+更多关于PHP相关内容感兴趣的读者可查看本站专题：
+《php面向对象程序设计入门教程》、      1
+《PHP数组(Array)操作技巧大全》、         2
+《PHP基本语法入门教程》、
+《PHP运算与运算符用法总结》、
+《php字符串(string)用法总结》、	3
+《php+mysql数据库操作入门教程》及《php常见数据库操作技巧汇总》    4
+多多议看
+
+
+
+
+
+
+
+
+
+
+
+php在使用某个变量之前有没有必要先定义变量呢？
+
+数组需要 防止空数据
+字符串没必要
+比较是弱类型语言嘛
+
+sdk:就是面像软件开发者的的工具集(白话文就是封装数据)

@@ -1,0 +1,120 @@
+github：账户 orgin-yankai  邮箱914974912@qq.com  密码131452077528.yk
+$ ssh-keygen -t rsa -C "914974912@qq.com"   （为什么GitHub需要SSH Key呢？因为GitHub需要识别出你推送的提交确实是你推送的，）
+测试是否配置成功ssh -T git@github.com
+
+
+
+
+1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库
+
+git init
+
+2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件
+
+git add .
+	git add -A和 git add .   git add -u在功能上看似很相近，但还是存在一点差别
+
+	git add . ：他会监控工作区的状态树，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。
+
+	git add -u ：他仅监控已经被add的文件（即tracked file），他会将被修改的文件提交到暂存区。add -u 不会提交新文件（untracked file）。（git add --update的缩写）
+
+	git add -A ：是上面两个功能的合集（git add --all的缩写）
+
+3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明
+
+git commit -m 'first commit'
+
+4、关联到远程库
+
+git remote add origin 你的远程库地址
+如：
+git remote add origin https://github.com/cade8800/ionic-demo.git
+
+5、获取远程库与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）
+
+git pull --rebase origin master
+
+6、把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。执行此命令后会要求输入用户名、密码，验证通过后即开始上传。
+
+git push -u origin master
+	
+	加了参数-u后，以后即可直接用git push -u  代替git push origin master
+	参数-f    git push -f表示将目前自己本机的代码库推送到远端，并覆盖
+
+ 
+版本控制系统(管理的是修改)
+配置 用户和邮件
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+0.0 vim runoob.php 过去修改内容  
+0.1 cat查看文件的内容
+0.1.1 ls 查看文件和文件夹
+0.1.2mkdir 创建一个文件夹
+0、touch 创建 一个文件
+1、git init  创建一个自己创库
+2、git add 添加文件到创库  （提交到暂存区）   暂存区是Git非常重要的概念，弄明白了暂存区，就弄明白了Git的很多操作到底干了什么。
+3、git commit -m 提交文件到创库    -m注释的意思    （一次性把暂存区提交到分支）
+4、git status  查看当前状态
+5、git diff  查看修改内容
+6、git log  查看历史记录  
+   6.1、git log --pretty=oneline  查看简洁历史记录
+7、git reset --hard HEAD^  返回上一个版本
+   7.0、ls 相当于查看以文件命明文件
+   7.1、配合cat查看内容    
+   7.2、git reflog 查看命令历史
+8、git checkout -- file 撤消操作（工作区）
+     8.1、git reset HEAD --file 撤消暂存区操作
+9、 git rm 删除
+10、git remote add origin git@github.com:orgin-yankai/I-is-project.git     关联远程创库
+    10.1、git push origin master  推送最新修改
+     10.2    git remote add [shortname] [url]   shortname 远程库的关联
+     10.3    git merge  orgin/master     远程取出 合并 同步本地
+11、git clone git@github.com:orgin-yankai/I-is-project.git        克隆一个本地库
+12、 git branch  创建分支
+    12.1、 git checkout  切换分支 
+    12.2、git chechout -b     最新版 git swith -c     创建和切换分支   
+    12.3、git  branch  -d  删除分支
+    12.4、git branch -a  显示分支
+    12.5、git merge 合并分支
+13、git tag 创建标签    
+    13.1、git tag  v.1.0   commit id   给以前打标签 
+    13.2、git show 查看标签信息
+    13.3、git tag -d   删除标签
+    13.4、git push origin --tags  添加远程标签
+     13.5、git push origin :refs/tags/...  删除
+
+
+
+
+
+
+
+git remote -v：                                           查看远程仓库详细信息，可以看到仓库名称
+
+git remote remove orign：                        删除orign仓库（如果把origin拼写成orign，删除错误名称仓库）
+
+git remote add origin 仓库地址：              重新添加远程仓库地址
+
+gti push -u origin master：                       提交到远程仓库的master主干  -u初始化
+
+
+
+  git pull = git fetch + git merge FETCH_HEAD 
+  git pull --rebase =  git fetch + git rebase FETCH_HEAD     解决 .md文件  冲突问题
+
+      二者的区别是，在fetch之后的操作不同，merge与rebase的不同
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
