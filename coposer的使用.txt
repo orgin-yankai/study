@@ -1,0 +1,7 @@
+composer的使用
+安装
+1、composer create-project topthink/think tp(下载名字) 6.0.*
+如果需要更新框架使用
+2、composer update topthink/framework
+引入
+3、composer require topthink/think-view   
