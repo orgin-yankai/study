@@ -135,3 +135,10 @@ php在使用某个变量之前有没有必要先定义变量呢？
 比较是弱类型语言嘛
 
 sdk:就是面像软件开发者的的工具集(白话文就是封装数据)
+
+
+
+PHP cURL 函数  模拟浏览器的数据传输工具
+cURL: 链接是https开头需要以下配置
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
