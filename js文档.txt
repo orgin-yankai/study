@@ -10,6 +10,12 @@ xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 JSON.parse       字符串转成 对象
 JSON.stringify   对象 转成字符串
 
+同步请求和异步请求的区别,ajax异步请求如何理解
+先解释一下同步和异步的概念 ：
+同步是指：发送方发出数据后，等接收方发回响应以后才发下一个数据包的通讯方式。 
+异步是指：发送方发出数据后，不等接收方发回响应，接着发送下个数据包的通讯方式。
+
+
 
 事件流：
 网景公司提出的事件流叫事件捕获流 事件捕获：从上到下执行
