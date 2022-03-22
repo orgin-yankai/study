@@ -1,0 +1,98 @@
+html 文本
+{{}}
+数据绑定最常见的形式就是使用 {{...}}（双大括号）的文本插值：
+html   文本    {{message}}           代码  return {message: 'Hello Vue!!'}
+
+
+
+
+html 标签
+v-html
+使用 v-html 指令用于输出 html 代码：
+
+以下实例判断 use 的值，如果为 true 使用 class1 类的样式，否则不使用该类
+html 标签  <p>使用 v-html 指令: <span v-html="rawHtml"></span></p>
+
+代码   return {rawHtml: '<span style="color: red">这里会显示红色！</span>'}
+
+
+
+
+html   属性    
+v-bind
+html    属性     <div v-bind:class="{'class1': use}">v-bind:class 指令</div>
+代码    return {use: false}
+
+
+
+
+表达式
+Vue.js 都提供了完全的 JavaScript 表达式支持
+
+js表达式
+{{5+5}}<br>
+ {{ok ? 'YES' : 'NO' }}<br>
+代码     return {ok: true}
+
+
+
+条件语：
+v-if  v-else    v-else-if   
+
+循环语句：
+v-for="value in  arr" 或  v-for="(value index)  in arr"
+
+
+
+
+
+
+组件可以扩展 HTML 元素，封装可重用的代码。
+
+
+
+指令
+指令是带有 v- 前缀的特殊属性。
+
+
+
+参数
+参数在指令后以冒号指明。例如， v-bind 指令被用来响应地更新 HTML 属性
+
+
+
+v-model指令双向数据绑定
+v-model 指令用来在 input、select、textarea、checkbox、radio 等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。
+
+
+
+修饰符
+修饰符是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。
+
+
+
+按钮的事件我们可以使用 v-on 监听事件，并对用户的输入进行响应。
+
+
+
+缩写
+v-bind 缩写
+
+<!-- 完整语法 -->
+<a v-bind:href="url"></a>
+<!-- 缩写 -->
+<a :href="url"></a>
+
+v-on 缩写
+
+<!-- 完整语法 -->
+<a v-on:click="doSomething"></a>
+<!-- 缩写 -->
+<a @click="doSomething"></a>
+
+
+
+
+
+混入mixins:
+混入 (mixins)定义了一部分可复用的方法或者计算属性。
