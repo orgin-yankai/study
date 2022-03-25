@@ -200,3 +200,12 @@ $_SERVER['AUTH_TYPE'] #当 PHP 运行在 Apache 模块方式下，并且正在�
 $_SERVER[”HTTP_X_FORWARDED_FOR”] #透过代理服务器取得客户端的真实 IP 地址
 $_SERVER['HTTP_VIA'] #代理服务器IP
 $_SERVER['HTTP_CLIENT_IP'] #客户端IP
+
+
+
+
+
+
+php开发之socket网络编程  
+tcp/udp/ip等介绍：
+https://blog.csdn.net/qq_33716731/article/details/87255889
