@@ -39,7 +39,7 @@ mysql  -hlocalhost -uroot -p                     -h代表是服务器   -u代表
 		Repeatable read （重复读）
 		字面意思是重复读，就是在开始读取数据(事务开启)时，不再允许修改操作，也就是幻读（因为幻读问题对应的是插入INSERT操作，而不是UPDATE操作）
 		白话文：读取之前不能修改
-               2.2、Innodb和MyIsAM的区别：
+        2.2、Innodb和MyIsAM的区别：
 		1. InnoDB 支持事务，MyISAM 不支持事务。这是 MySQL 将默认存储引擎从 MyISAM 变成 InnoDB 的重要原因之一；
 		2. InnoDB 支持外键，而 MyISAM 不支持。对一个包含外键的 InnoDB 表转为 MYISAM 会失败；  
 		3. InnoDB 是聚集索引，MyISAM 是非聚集索引。聚簇索引的文件存放在主键索引的叶子节点上，因此 InnoDB 必须要有主键，通过主键索引效率很高。但是辅助索引需要两次查询，先查询到主键，然后再通过主键查询到数据。因此，主键不应该过大，因为主键太大，其他索引也都会很大。而 MyISAM 是非聚集索引，数据文件是分离的，索引保存的是数据文件的指针。主键索引和辅助索引是独立的。 
