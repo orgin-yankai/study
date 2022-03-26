@@ -1,0 +1,55 @@
+net start +服务名
+net start mysql 启动服务
+net stop mysql 关闭服务
+mysql  -hlocalhost -uroot -p                     -h代表是服务器   -u代表是用户名   
+
+1、服务名无效：
+原因是：因为net start +服务名，启动的是win下注册的服务。此时，系统中并没有注册mysql到服务中。即当前路径下没有mysql服务。
+	1.1、 来到MySQL的安装路径下bin
+	1.2、 在命令行中输入mysqld --install
+	1.3.、功：出现Service successfully install代表你已经安装成功，
+
+
+2、mysql事务：
+	2.1、事务四大特性：     事务是一个序列操作
+		原子性：要么全部完成，要么全部不完成（对于一个事务来说，不可能只执行其中的一部分操作，这就是事务的原子性。）
+		一至性：在事务开始之前和事务结束以后，数据库的完整性没有被破坏（数据库总数从一个一致性的状态转换到另一个一致性的状态。）
+		隔离性：数据库允对事务同时对其数据进行读写和修改的能力     事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（Serializable）（一个事务所做的修改在最终提交以前，对其他事务是不可见的。）       大多数数据库默认的事务隔离级别是Read committed，比如Sql Server , Oracle。MySQL的默认隔离级别是Repeatable read。
+		持久性：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失
+		SET TRANSACTION 用来设置事务的隔离级别。InnoDB 存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ 和 SERIALIZABLE。
+		
+		
+		设置事务的隔离级别代码：
+		SET  [SESSION | GLOBAL]   TRANSACTION ISOLATION LEVEL  {READ UNCOMMITTED | READ COMMITTED | REPEATABLE READ | SERIALIZABLE}
+		
+		查看数据库当前隔离级别代码
+		select @@tx_isolation
+
+		Read uncommitted（读未提交）
+		字面意思是读未提交，（一个事务可以读取另一个未提交事务的数据，即出现脏读。（读取未修改的数据））
+
+		Read committed （读提交）
+		字面意思是读提交，（一个事务要等另一个事务提交后才能读取数据，也就是不可重复读（不可重复读对应的是修改，即UPDATE操作））
+		白话文：只能读取一次
+
+		Serializable
+		字面意思序列化，Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。
+
+
+		Repeatable read （重复读）
+		字面意思是重复读，就是在开始读取数据(事务开启)时，不再允许修改操作，也就是幻读（因为幻读问题对应的是插入INSERT操作，而不是UPDATE操作）
+		白话文：读取之前不能修改
+               2.2、Innodb和MyIsAM的区别：
+		1. InnoDB 支持事务，MyISAM 不支持事务。这是 MySQL 将默认存储引擎从 MyISAM 变成 InnoDB 的重要原因之一；
+		2. InnoDB 支持外键，而 MyISAM 不支持。对一个包含外键的 InnoDB 表转为 MYISAM 会失败；  
+		3. InnoDB 是聚集索引，MyISAM 是非聚集索引。聚簇索引的文件存放在主键索引的叶子节点上，因此 InnoDB 必须要有主键，通过主键索引效率很高。但是辅助索引需要两次查询，先查询到主键，然后再通过主键查询到数据。因此，主键不应该过大，因为主键太大，其他索引也都会很大。而 MyISAM 是非聚集索引，数据文件是分离的，索引保存的是数据文件的指针。主键索引和辅助索引是独立的。 
+		4. InnoDB 不保存表的具体行数，执行 select count(*) from table 时需要全表扫描。而MyISAM 用一个变量保存了整个表的行数，执行上述语句时只需要读出该变量即可，速度很快；    
+		5. InnoDB 最小的锁粒度是行锁，MyISAM 最小的锁粒度是表锁。一个更新语句会锁住整张表，导致其他查询和更新都会被阻塞，因此并发访问受限。这也是 MySQL 将默认存储引擎从 MyISAM 变成 InnoDB 的重要原因之一；
+	        如何选择：
+		1. 是否要支持事务，如果要请选择 InnoDB，如果不需要可以考虑 MyISAM；
+		2. 如果表中绝大多数都只是读查询，可以考虑 MyISAM，如果既有读写也挺频繁，请使用InnoDB。
+		3. 系统奔溃后，MyISAM恢复起来更困难，能否接受，不能接受就选 InnoDB； 
+		4. MySQL5.5版本开始Innodb已经成为Mysql的默认引擎(之前是MyISAM)，说明其优势是有目共睹的。如果你不知道用什么存储引擎，那就用InnoDB，至少不会差。  
+	2.3   修改表的引擎和查看表的引擎：
+		2.3.1、ALTER TABLE `表名` ENGINE = MyISAM;
+		2.3.2、show create  table  表名
