@@ -7,3 +7,11 @@ thinkphp5:
 
 	session可以写在runtime目录下：
 	在runtime目录下新建session目录，然后在 config文件下的session配置的下path路径进行配置
+
+
+
+
+获取模型对应的字段：
+设置schema 字段  减少内存开销
+命令如下：
+php think optimize:schema
