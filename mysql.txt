@@ -1,3 +1,27 @@
+软件工程
+软件的需求分析阶段知道系统要“做什么”，而软件设计阶段我们明白的是“怎么做”。
+在系统设计阶段，要设计软件体系结构
+
+
+
+
+
+
+phpstudy 2018版本（小皮面板） 无法开启mysql
+！！！！！是因为系统里面的mysql影响了你的phpstudy所以phpstudy里面的msyql打不开
+
+1，需要你打开cmd然后输入sc delete mysql删除系统中的mysql
+
+ 然后管理服务中没有了系统的mysql
+
+
+
+
+
+
+
+
+
 net start +服务名
 net start mysql 启动服务
 net stop mysql 关闭服务

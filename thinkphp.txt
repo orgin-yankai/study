@@ -1,1 +1,9 @@
-模板可以使用     三元运算符｛$var?true:false｝
+模板三元运算符：
+可以使用     三元运算符｛$var?true:false｝
+
+thinkphp5:
+	session的错误：
+	出现 \tmp\tmp\session文件       就在 tmp下  在建立一个目录 tmp\tmp    
+
+	session可以写在runtime目录下：
+	在runtime目录下新建session目录，然后在 config文件下的session配置的下path路径进行配置
