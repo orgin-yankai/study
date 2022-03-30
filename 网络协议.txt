@@ -1,0 +1,26 @@
+关于虚拟机不能ping通
+	一、防火墙，二、虚拟网卡
+	防火墙：网上有教程
+	虚拟网卡：
+	1、查看本地网络连接是否有 VMnet8和VMnet1这两个虚拟网卡，没有的话就点击我的电脑管理，然后找到服务和应用程序，在然后点服务找到Device Install Service 停掉，在然后找到VMware 开头的全停掉。
+	2、找到 VMware的安装目录下 打开虚拟网络编辑器（类似小地球哪个），点击还原默认设置
+	3、此时就可以看见本地网络 VMnet8和VMnet1这两个虚拟网卡。
+	4、VMware的网络连接方式选 桥接模式（加上复制物理网络连接状态）或者 nat模式。   
+	5、以上两种都测试过的可行，注要是这两个  VMnet8和VMnet1这两个虚拟网卡。
+	6、搞了十几个小时，还不包括以前的时间了，哎
+  
+ssh 远程加密传输协议     相当于 https  数据加密 一样      只不过比 https 多了个命令交互操作
+它在远程传输时给这些数据做了一层加密防护，使得攻击者难以破解	
+
+
+1、rpm -qa | grep ssh 可以查看机器上是否已经安装了SSH       包含了 SSH client 跟 SSH server，则不需要再安装。
+2、SSH服务的开启      systemctl start sshd.service  
+	1、执行命令 systemctl start sshd.service 或者 service sshd start 启动SSH服务。
+	2、执行命令 systemctl stop sshd.service 或者 service sshd stop 启动SSH服务。
+	3、执行命令 systemctl restart sshd.service 或者 service sshd restart 重启SSH服务。
+	4、执行命令 systemctl enable sshd.service 或者 service sshd enable 设置服务开机自启。
+3、查看状态    service sshd status     可以查看SSH服务是否启动
+	3.1、active表示SSH服务是启动的。
+	3.2、inactive表示SSH服务已关闭
+
+
