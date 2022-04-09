@@ -13,14 +13,8 @@ ssh 远程加密传输协议     相当于 https  数据加密 一样      只�
 它在远程传输时给这些数据做了一层加密防护，使得攻击者难以破解	
 
 
-1、rpm -qa | grep ssh 可以查看机器上是否已经安装了SSH       包含了 SSH client 跟 SSH server，则不需要再安装。
-2、SSH服务的开启      systemctl start sshd.service  
-	1、执行命令 systemctl start sshd.service 或者 service sshd start 启动SSH服务。
-	2、执行命令 systemctl stop sshd.service 或者 service sshd stop 启动SSH服务。
-	3、执行命令 systemctl restart sshd.service 或者 service sshd restart 重启SSH服务。
-	4、执行命令 systemctl enable sshd.service 或者 service sshd enable 设置服务开机自启。
-3、查看状态    service sshd status     可以查看SSH服务是否启动
-	3.1、active表示SSH服务是启动的。
-	3.2、inactive表示SSH服务已关闭
+
+
+
 
 

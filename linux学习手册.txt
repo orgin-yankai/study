@@ -1,3 +1,11 @@
+linux权限
+# 代表 root用户
+$ 代表 普通用户
+
+
+netstat -tpln  查看 端口
+
+lnmp配置：https://www.cnblogs.com/zhongguiyao/p/8092928.html
 
 1：文件管理
 mkdir[参数] [目录]    创建 文件目录
@@ -9,7 +17,8 @@ pwd[参数]      显示工作目录
 2：文档编辑
 cat  在终端 查看源文件内容
 echo 在终端 查看输出内容
-rm   删除文件和目录
+rm -r  file   删除文件和目录
+rm -rf  file   跑路
 tail  在终端 查看源文件末尾内容  默认10
 rmdir  删除空目录   一定为空 
 
@@ -25,4 +34,41 @@ vmstat[参数]    显示虚拟内存
 df [参数] [指定文件] 显示磁盘空间使用情况
 
 
+5:  scp命令
+“scp是 secure copy的缩写, scp是linux系统下基于ssh登陆进行安全的远程文件拷贝命
+  
 
+  scp  -r  文件和目录全部
+  文件上传：
+   scp e:\study\index.php       root@192.168.2.104:\etc\yankai
+  文件下载：
+  scp   root@192.168.2.104:\etc\yankai     e:\study\index.php    
+ 
+6:   ssh命令
+	1、rpm -qa | grep ssh 可以查看机器上是否已经安装了SSH       包含了 SSH client 跟 SSH server，则不需要再安装。
+	2、SSH服务的开启      systemctl start sshd.service  
+		1、执行命令 systemctl start sshd.service 或者 service sshd start 启动SSH服务。
+		2、执行命令 systemctl stop sshd.service 或者 service sshd stop 启动SSH服务。
+		3、执行命令 systemctl restart sshd.service 或者 service sshd restart 重启SSH服务。
+		4、执行命令 systemctl enable sshd.service 或者 service sshd enable 设置服务开机自启。
+	3、查看状态    service sshd status     可以查看SSH服务是否启动
+		3.1、active表示SSH服务是启动的。
+		3.2、inactive表示SSH服务已关闭
+
+
+
+
+
+
+
+
+
+
+请用浏览器访问面板:
+外网:http://183.229.182.219:9080/EE7EF8
+内网:http://192.168.2.104:9080/EE7EF8
+系统初始账号:admin
+系统初始密码:asbOeMAJ77
+官网:https://www.xp.cn
+如果使用的是云服务器，请至安全组开放9080端口
+如果使用ftp，请开放21以及30000-30050端口
