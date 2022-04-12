@@ -2,10 +2,11 @@ linux权限
 # 代表 root用户
 $ 代表 普通用户
 
+linux 关机
+shutdown -h now
+linux 重启
+shutdown -r now
 
-netstat -tpln  查看 端口
-
-lnmp配置：https://www.cnblogs.com/zhongguiyao/p/8092928.html
 
 1：文件管理
 mkdir[参数] [目录]    创建 文件目录
@@ -21,7 +22,7 @@ rm -r  file   删除文件和目录
 rm -rf  file   跑路
 tail  在终端 查看源文件末尾内容  默认10
 rmdir  删除空目录   一定为空 
-
+tar -xvf   解压tar.gz文件
 
 
 
@@ -72,3 +73,78 @@ df [参数] [指定文件] 显示磁盘空间使用情况
 官网:https://www.xp.cn
 如果使用的是云服务器，请至安全组开放9080端口
 如果使用ftp，请开放21以及30000-30050端口
+
+
+
+
+
+
+
+
+手动部署LNMP环境（CentOS 7）教程
+https://help.aliyun.com/document_detail/97251.html
+https://www.cnblogs.com/qingfj/p/14673932.html
+lnmp配置：https://www.cnblogs.com/zhongguiyao/p/8092928.html
+
+安装php
+https://www.php.net/releases/php-7.4.3.tar.gz
+php-fpm教程
+jianshu.com/p/4149bb08cd8a
+
+安装mysql教程
+https://www.cnblogs.com/menu520/p/14714178.html
+
+下载mysql
+https://dev.mysql.com/get/downloads/mysql/mysql-5.7.10-linux-glibc2.5-x86_64.tar.gz     一定要带get 不是下载不了  404
+mysql安装和配置教程
+https://blog.csdn.net/YKQi_/article/details/122459030
+
+
+下载nginx
+https://nginx.org/download/nginx-1.6.3.tar.gz  	一定不要带en  不是下载不了 404
+启动nginx
+nginx/sbin/                    ./nginx
+关闭nginx
+nginx/sbin/                    ./nginx -s stop
+配置nginx
+https://blog.csdn.net/qq_37074682/article/details/122819799
+虽然Nginx的压缩包和解压后的文件夹都是放在个人用户下的，但是通过su root切换到root用户，并执行Nginx安装操作，最终生成的Nginx文件夹应该在root根目录，而不是在个人用户下
+所以，应该cd /到root根目录，查看usr/local/nginx文件夹下的sbin目录，这个路径是不是很熟悉？没错，就是环境变量里面配置的那个路径
+对于不太熟悉Linux虚拟机的小伙伴而言，一定要区分root用户和个人用户，希望踩过这个坑以后就不会再犯同样的错误了。  
+出现以下问题：就是80端口被占用，改成其他
+
+查看80端口：
+netstat -ntlp | grep :80
+查看端口
+netstat -antp
+杀死进程：
+kill PID
+
+
+Nginx报错：Sorry, the page you are looking for is currently unavailable. Please try again later.   php和nginx都可以  配置问题
+https://www.cnblogs.com/lxwphp/p/8029047.html
+
+
+
+
+nginx: [emerg] unknown directive "     " in /usr/local/nginx/conf/nginx.conf:39    没有分号或多佘空格；
+
+
+
+	Linux完全卸载mysql的方式
+	//rpm包安装方式卸载
+		查包名：rpm -qa|grep -i mysql
+		删除命令：rpm -e –nodeps 包名
+ 
+	//yum安装方式下载
+	1.查看已安装的mysql
+		命令：rpm -qa | grep -i mysql
+	2.卸载mysql
+		命令：yum remove mysql-community-server-5.6.36-2.el7.x86_64
+		查看mysql的其它依赖：rpm -qa | grep -i mysql
+ 
+	//卸载依赖
+		yum remove mysql-libs
+		yum remove mysql-server
+		yum remove perl-DBD-MySQL
+		yum remove mysql

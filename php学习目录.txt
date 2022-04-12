@@ -72,6 +72,8 @@
 
 
 
+
+
 下面是PHP获取当前服务器信息的基本语句。
  
 PHP程式版本： <?PHP echo PHP_VERSION; ?>
@@ -103,7 +105,13 @@ MySQL最大连接数： <?php echo @get_cfg_var("mysql.max_links")==-1 ? "不限
 匿名函数(Anonymous functions)，也叫闭包函数(closures)，允许 临时创建一个没有指定名称的函数。最经常用作回调函数(callback)参数的值。
 
 
+
+
+
 PHP_EOL常量是处理写日志系统的换行功能好用处
+
+
+
 
 
 
@@ -136,7 +144,12 @@ php在使用某个变量之前有没有必要先定义变量呢？
 字符串没必要
 比较是弱类型语言嘛
 
-sdk:就是面像软件开发者的的工具集(白话文就是封装数据)
+
+
+
+sdk:就是面向软件开发者的的工具集(白话文就是封装数据)
+
+
 
 
 
@@ -144,6 +157,9 @@ PHP cURL 函数  模拟浏览器的数据传输工具
 cURL: 链接是https开头需要以下配置
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+
+
+
 
 
 PHP 面向对象：
@@ -163,6 +179,10 @@ PHP 面向对象：
 	   4.1、接口来达到多继承的目的   比如：A>B   A>c  A>d    一个接口有多个实现子类
 	   4.2、继承:只能继承一个父类，接口就解决了这个问题
 	   4.3、面向接口编程，接口的引用指向实现类
+
+
+
+
 
 
 
@@ -211,3 +231,8 @@ $_SERVER['HTTP_CLIENT_IP'] #客户端IP
 php开发之socket网络编程  
 tcp/udp/ip等介绍：
 https://blog.csdn.net/qq_33716731/article/details/87255889
+
+
+
+
+PHP-FPM(PHP FastCGI Process Manager)意：PHP FastCGI 进程管理器，用于管理PHP 进程池的软件，用于接受web服务器的请求。

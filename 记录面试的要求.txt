@@ -33,8 +33,6 @@ php工作要求：
 
 
 
-https://www.zh30.com/
-https://www.cnblogs.com/chenqiwei/p/RunWsh_grbk.html
 
 
 
@@ -64,11 +62,8 @@ https://www.cnblogs.com/chenqiwei/p/RunWsh_grbk.html
 
 
 
-
-
+谈谈我在PHP面试时踩过的坑 找工作必看
 https://zhuanlan.zhihu.com/p/234706864
-
-
 1.get,post 的区别
 
 显示有区别
