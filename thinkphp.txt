@@ -15,3 +15,11 @@ thinkphp5:
 设置schema 字段  减少内存开销
 命令如下：
 php think optimize:schema
+
+
+
+Thinkphp5   apche如何隐藏入口文件index.php（URL重写)
+https://wenku.baidu.com/view/1193182a0440be1e650e52ea551810a6f524c8eb.html
+
+Thinkphp5    nginx如何隐藏入口文件index.php（URL重写)
+https://www.it610.com/article/1345508393116315648.htm
